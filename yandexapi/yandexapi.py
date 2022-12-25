@@ -7,7 +7,7 @@ class YaUploader:
 
     def upload_file(self, load_file):
         upload_url = "https://cloud-api.yandex.net/v1/disk/resources/upload"
-        params = {"path": load_file, "overwrite": "true"}
+        params = {"path": f"/{load_file}", "overwrite": "true"}
         headers = {"Content-Type": "application/json", "Accept": "application/json",
                    "Authorization": f"OAuth {token}"}
         response = requests.get(upload_url, params=params, headers=headers)
@@ -25,6 +25,3 @@ if __name__ == "__main__":
     token = "***"
     uploader = YaUploader(token)
     result = uploader.upload_file(file_path)
-
-
-
