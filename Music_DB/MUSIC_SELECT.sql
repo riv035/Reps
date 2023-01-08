@@ -14,7 +14,8 @@ select name from band
 where name not like '% %';
 
 select name from song
-where lower(name) like lower('%my%');
+where string_to_array(lower(name), ' ') && array['my', 'мой'];
+
 
 
 
